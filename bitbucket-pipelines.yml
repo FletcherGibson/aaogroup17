@@ -15,4 +15,4 @@ pipelines:
           - pip install -U pytest
     - step:
         script:
-            - pytest
+          - pytest
