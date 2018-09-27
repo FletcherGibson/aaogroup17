@@ -27,23 +27,40 @@ BANDS_CHOICES = (
     ('mwagleam_dr1_208-216', 'MWA GLEAM DR1 208-216'),
     ('mwagleam_dr1_216-223', 'MWA GLEAM DR1 216-223'),
     ('mwagleam_dr1_223-231', 'MWA GLEAM DR1 223-231'),
-    )
+)
 
 PLOTUNITS_CHOICES = (
     ('fits', 'FITS'),
     ('jpeg', 'JPEG'),
 )
-
+# class Bands_Choices(model.Models):
+#     bands = models.CharField(unique=True)
+class BandsChoices(models.Model):
+     bands = models.CharField(
+        max_length=len(BANDS_CHOICES),
+        choices=BANDS_CHOICES,
+        default=None
+    )
 class CutoutQuery(models.Model):
+    #TODO: Validation
     ra = models.CharField(
-    help_text="Right Ascension. Format is as: 10.2345",
     max_length=30,
     )
+
+    #TODO: Validation
     dec = models.CharField(
-        help_text= "Declination. Format is as: -0.2716",
         max_length=30,
     )
-    radius = models.FloatField(
-                help_text="Minimum value = 0.016666, maximum value = 5")
-    bands = models.CharField(max_length=len(BANDS_CHOICES), choices=BANDS_CHOICES, default=BANDS_CHOICES[0])
-    plot_units = models.CharField(max_length=len(PLOTUNITS_CHOICES), choices=PLOTUNITS_CHOICES, default=PLOTUNITS_CHOICES[0])
+
+    #TODO: Validation & change from float field
+    radius = models.FloatField()
+
+    #TODO: Validation
+    bands = models.ManyToManyField(BandsChoices)
+
+    #TODO: Validation
+    plot_units = models.CharField(
+        max_length=len(PLOTUNITS_CHOICES),
+        choices=PLOTUNITS_CHOICES,
+        default=None
+    )
