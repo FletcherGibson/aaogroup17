@@ -1,6 +1,10 @@
 from rest_framework import serializers
 from .models import CutoutQuery
 
+#TODO: 1. Format plot units with help text + label
+#      2. Format Bands with multi select
+#      3. Format Bands with help text + label 
+
 class CutoutQuerySerializer(serializers.HyperlinkedModelSerializer):
 
     #Radius
@@ -11,12 +15,6 @@ class CutoutQuerySerializer(serializers.HyperlinkedModelSerializer):
         help_text="Minimum value = 0.016666, maximum value = 5"
     )
 
-    #Format
-    plot_units = serializers.CharField(
-        label="Format",
-        required=True,
-    )
-
     # Right Ascension
     ra = serializers.CharField(
         label="RA",
@@ -25,16 +23,11 @@ class CutoutQuerySerializer(serializers.HyperlinkedModelSerializer):
 
     # Declination
     dec = serializers.CharField(
-         help_text= "Declination. Format is as: -0.2716"
-    )
-
-    #TODO: Fill in help text
-    #      Many to Many relation/selection
-    #Frequency Bands
-    bands = serializers.CharField(
-        help_text="Some useful info about this parameter",
+        help_text= "Declination. Format is as: -0.2716",
     )
 
     class Meta: 
         model = CutoutQuery
         fields = ('ra', 'dec', 'radius', 'bands', 'plot_units')
+
+    

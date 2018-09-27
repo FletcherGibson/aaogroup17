@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import RegexValidator
+
 
 BANDS_CHOICES = (
     ('mwagleam_dr1_072-080', 'MWA GLEAM DR1 072-080'),
@@ -33,30 +35,26 @@ PLOTUNITS_CHOICES = (
     ('fits', 'FITS'),
     ('jpeg', 'JPEG'),
 )
-# class Bands_Choices(model.Models):
-#     bands = models.CharField(unique=True)
-class BandsChoices(models.Model):
-     bands = models.CharField(
-        max_length=len(BANDS_CHOICES),
-        choices=BANDS_CHOICES,
-        default=None
-    )
+
+
+     
 class CutoutQuery(models.Model):
     #TODO: Validation
-    ra = models.CharField(
-    max_length=30,
-    )
+    ra = models.DecimalField(max_digits=30,
+    decimal_places=4)
 
     #TODO: Validation
-    dec = models.CharField(
-        max_length=30,
-    )
+    dec = models.DecimalField(max_digits=30,
+    decimal_places=4)
 
     #TODO: Validation & change from float field
     radius = models.FloatField()
 
     #TODO: Validation
-    bands = models.ManyToManyField(BandsChoices)
+    bands = models.CharField(max_length=len(BANDS_CHOICES),
+        choices=BANDS_CHOICES,
+        default=None,
+    )
 
     #TODO: Validation
     plot_units = models.CharField(
@@ -64,3 +62,4 @@ class CutoutQuery(models.Model):
         choices=PLOTUNITS_CHOICES,
         default=None
     )
+

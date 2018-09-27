@@ -7,5 +7,5 @@ router = routers.DefaultRouter()
 router.register('CutoutQuery', views.CutoutQueryView)
 
 urlpatterns = [
-    url('', include(router.urls))
+    url(r'^', include(router.urls))
 ]
