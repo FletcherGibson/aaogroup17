@@ -11,18 +11,20 @@ class CutoutQueryView(viewsets.ModelViewSet):
     queryset = CutoutQuery.objects.all()
     serializer_class = CutoutQuerySerializer
 
-    def create(self, request): # Here is the new update comes <<<<
+    def create(self, request): 
         post_data = request.data
-        # do something with post data
         position = "{},{}".format(post_data['ra'],post_data['dec'])
-        r = requests.post(
-        "http://gleam-vo.icrar.org/gleam_postage/q/siap.xml?",
-        data = {
+        payload = {
             # 'POS':'0.4298047815961236,-0.4903328000552869',
             'POS' : position,
-            'SIZE': post_data['radius']
-        })
-        return Response(r.text)
+            'SIZE': post_data['radius'],
+            'BAND': post_data['bands'],
+            'FORMAT' : post_data['plot_units']
+        }
+        r = requests.get(
+        "http://gleam-vo.icrar.org/gleam_postage/q/siap.xml?", params=payload)
+        #return Response(r.text)
+        return Response(r.url)
 
     def retrieve(self, request, pk=None):
         # your code
