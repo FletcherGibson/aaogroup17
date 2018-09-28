@@ -33,7 +33,6 @@ BANDS_CHOICES = (
 
 PLOTUNITS_CHOICES = (
     ('fits', 'FITS'),
-    ('jpeg', 'JPEG'),
 )
 
 

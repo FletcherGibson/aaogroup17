@@ -25,7 +25,8 @@ SECRET_KEY = 'apqga4h8g=n6x!oh-6976x4q%^+iadbqwj%p+$an0(j)8c2b^f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-env.mmwb3umiyu.ap-southeast-2.elasticbeanstalk.com',
+                 'localhost']
 
 
 # Application definition
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'aao_cutout_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['D:\\Code\\aaogroup17\\aao_cutout_api\\cutout_extension'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,4 +120,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATIC_URL = '/static/'
+
+import os.path
+
+#PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT, 'static'),
+# )
