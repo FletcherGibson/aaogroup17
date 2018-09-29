@@ -25,11 +25,28 @@ SECRET_KEY = 'apqga4h8g=n6x!oh-6976x4q%^+iadbqwj%p+$an0(j)8c2b^f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.mmwb3umiyu.ap-southeast-2.elasticbeanstalk.com',
-                 'localhost']
+ALLOWED_HOSTS = ['aao-api-test.ap-southeast-2.elasticbeanstalk.com',
+                 'localhost',
+                 '13.236.38.167',]
 
 
 # Application definition
+AWS_STORAGE_BUCKET_NAME = 'aao-api-test'
+AWS_S3_REGION_NAME = 'ap-southeast-2'  # e.g. us-east-2
+AWS_ACCESS_KEY_ID = 'AKIAIQ3UKXHYEWAF5Y7Q'
+AWS_SECRET_ACCESS_KEY = 'dNBbKMv7YpcoqFBGMQSjU4o98tKAJ9/B/ztkyIOM'
+
+# Tell django-storages the domain to use to refer to static files.
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+# Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
+# you run `collectstatic`).
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'cutout_extension.apps.CutoutExtensionConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -76,12 +94,49 @@ WSGI_APPLICATION = 'aao_cutout_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# AWS DB
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'aao',
+#         'USER': 'aao_db_user',
+#         'PASSWORD': 'CqhdnuXbtFhjRSXZz9WQ',
+#         'HOST': 'aaodbinstance.cytfdvqc5cvc.ap-southeast-2.rds.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
+# Local sqlite3 DB
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
+else:
+    # Local PostgreSQL DB
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'aao',
+            'USER': 'postgres',
+            'PASSWORD': 'postgres',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
 
 
 # Password validation
@@ -120,10 +175,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+# ENABLE WHEN LIVE HOSTING
+# STATICFILES_LOCATION = 'static'
+# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+# ENABLE WHEN LIVE HOSTING
+# MEDIAFILES_LOCATION = 'media'
+# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
 STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATIC_URL = '/static/'
 
-import os.path
+#import os.path
 
 #PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 

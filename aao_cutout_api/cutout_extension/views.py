@@ -11,8 +11,10 @@ class CutoutQueryView(viewsets.ModelViewSet):
     queryset = CutoutQuery.objects.all()
     serializer_class = CutoutQuerySerializer
 
-    #TODO: Assumg freq band to website in order to
-    #      be able to query based on frequency
+    #TODO: 1. Assumg freq band to website in order to
+    #         be able to query based on frequency.
+    #      2. Make sure that POST also saves to DB for
+    #         
     def create(self, request): 
         post_data = request.data
         position = "{},{}".format(post_data['ra'],post_data['dec'])
