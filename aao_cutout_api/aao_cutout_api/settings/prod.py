@@ -2,7 +2,7 @@ from aao_cutout_api.settings.base import *
 import os
 #Override base.py settings here
 
-ALLOWED_HOSTS = ['aao-api-test.ap-southeast-2.elasticbeanstalk.com',
+ALLOWED_HOSTS = ['cutout-extension-prod.ap-southeast-2.elasticbeanstalk.com',
                  '13.236.38.167',]
 DATABASES = {
     'default': {
