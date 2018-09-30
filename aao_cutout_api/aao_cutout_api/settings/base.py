@@ -6,7 +6,7 @@ ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('aao_cutout_api')
 
 env = environ.Env()
-SECRET_KEY = env('DJANGO_SECRET_KEY', default='apqga4h8g=n6x!oh-6976x4q%^+iadbqwj%p+$an0(j)8c2b^f') #os.environ['SECRET_KEY']
+SECRET_KEY = 'apqga4h8g=n6x!oh-6976x4q%^+iadbqwj%p+$an0(j)8c2b^f' #os.environ['SECRET_KEY']
 # This section added from an update to standards in CookieCutter Django to ensure no errors are encountered at runserver/migrations
 READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
 
