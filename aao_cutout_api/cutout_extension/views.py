@@ -24,11 +24,11 @@ class CutoutQueryView(viewsets.ModelViewSet):
             'SIZE': post_data['radius'],
             #FREQ=072-080 VALID
             #FREQ=mwagleam_dr1_072-080 INVALID 
-            'BAND': post_data['bands'],
+            'FREQ': post_data['bands'],
             'FORMAT' : post_data['plot_units']
         }
         r = requests.get("http://gleam-vo.icrar.org/gleam_postage/q/siap.xml?", params=payload)
-        return Response(r.text)
+        return Response(r.url)
 
     def retrieve(self, request, pk=None):
         # your code
