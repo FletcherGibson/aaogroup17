@@ -2,7 +2,7 @@ from aao_cutout_api.settings.base import *
 
 #Override base.py settings here
 
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
+DEBUG = True
 
 # Local sqlite3 DB
 DATABASES = {
