@@ -15,34 +15,34 @@ DATABASES = {
     }
 }
 
-AWS_STORAGE_BUCKET_NAME = 'aao-api-test'
-AWS_S3_REGION_NAME = 'ap-southeast-2'  # e.g. us-east-2
-AWS_ACCESS_KEY_ID = 'AKIAIQ3UKXHYEWAF5Y7Q'
-AWS_SECRET_ACCESS_KEY = 'dNBbKMv7YpcoqFBGMQSjU4o98tKAJ9/B/ztkyIOM'
+# AWS_STORAGE_BUCKET_NAME = 'aao-api-test'
+# AWS_S3_REGION_NAME = 'ap-southeast-2'  # e.g. us-east-2
+# AWS_ACCESS_KEY_ID = 'AKIAIQ3UKXHYEWAF5Y7Q'
+# AWS_SECRET_ACCESS_KEY = 'dNBbKMv7YpcoqFBGMQSjU4o98tKAJ9/B/ztkyIOM'
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_S3_OBJECT_PARAMETERS = {
-    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    'CacheControl': 'max-age=94608000',
-}
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+#     'CacheControl': 'max-age=94608000',
+# }
 
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+# STATICFILES_LOCATION = 'static'
+# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
-MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+# MEDIAFILES_LOCATION = 'media'
+# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-STATIC_ROOT = STATIC_ROOT = os.path.join(ROOT_DIR, "..", "www", "static")
-STATIC_URL = '/static/'
+# STATIC_ROOT = STATIC_ROOT = os.path.join(ROOT_DIR, "..", "www", "static")
+# STATIC_URL = '/static/'
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+# PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT, 'static'),
+# )
 
 try:
     from aao_cutout_api.settings.local import *
