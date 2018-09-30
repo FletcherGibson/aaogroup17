@@ -1,9 +1,8 @@
-import environ
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-ROOT_DIR = environ.Path(__file__) - 3
-APPS_DIR = ROOT_DIR.path('aao_cutout_api')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#APPS_DIR = ROOT_DIR.path('aao_cutout_api')
 
 SECRET_KEY = 'apqga4h8g=n6x!oh-6976x4q%^+iadbqwj%p+$an0(j)8c2b^f'
 
@@ -102,19 +101,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATIC_URL = '/static/'
 
-STATIC_ROOT = str(ROOT_DIR('staticfiles'))
-
-STATICFILES_DIRS = (
-    str(APPS_DIR.path('static')),
-)
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
-
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = str(APPS_DIR('media'))
