@@ -2,6 +2,7 @@ from aao_cutout_api.settings.base import *
 import os
 #Override base.py settings here
 
+SECRET_KEY = os.environ['SECRET_KEY']
 ALLOWED_HOSTS = ['cutout-extension-prod.ap-southeast-2.elasticbeanstalk.com',
                  '13.236.38.167',]
 DATABASES = {
@@ -15,7 +16,7 @@ DATABASES = {
     }
 }
 
-AWS_STORAGE_BUCKET_NAME = 'aao-api-test'
+AWS_STORAGE_BUCKET_NAME = os.environ['BUCKET_NAME']
 AWS_S3_REGION_NAME = 'ap-southeast-2'  # e.g. us-east-2
 AWS_ACCESS_KEY_ID = os.environ['ACCESS_KEY']
 AWS_SECRET_ACCESS_KEY = os.environ['SECRET_ACCESS_KEY']
