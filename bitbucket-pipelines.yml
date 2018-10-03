@@ -13,4 +13,5 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - pip install --upgrade pip
           - pip install -r aao_cutout_api/requirements.txt
+          - cd aao_cutout_api
           - pytest
