@@ -26,13 +26,14 @@ def test_create_request():
 
 
 class request:
-    data = {"ra": "10.2345",
+    data ={ "ra": "10.2345",
             "dec": "-0.2716",
             "radius": 4.0,
             "bands": "mwagleam_dr1_072-080",
             "output_type": "fits",
-            }
+        }
 
 
 class bad_request:
-    data = {"This is an example of bad request data"}
+    data ={"This is an example of bad request data"}
+
