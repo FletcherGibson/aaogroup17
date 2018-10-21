@@ -26,11 +26,10 @@ class CutoutQueryView(viewsets.ModelViewSet):
 
         position = [data['ra'], data['dec']]
         payload = {
-
             query_list[0]: ','.join(position),
             query_list[1]: data['radius'],
             query_list[2]: re.sub(r'^mwagleam_dr1_', '', data['bands']),
-            query_list[3]: data['output_units']
+            query_list[3]: data['output_type']
         }
 
         return payload
