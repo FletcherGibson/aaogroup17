@@ -25,7 +25,7 @@ class CutoutQueryView(viewsets.ModelViewSet):
             #FREQ=072-080 VALID
             #FREQ=mwagleam_dr1_072-080 INVALID 
             'FREQ': post_data['bands'],
-            'FORMAT' : post_data['plot_units']
+            'FORMAT' : post_data['output_type']
         }
         r = requests.get("http://gleam-vo.icrar.org/gleam_postage/q/siap.xml?", params=payload)
         return Response(r.url)
