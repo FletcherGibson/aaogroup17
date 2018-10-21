@@ -16,10 +16,17 @@ class CutoutQueryView(viewsets.ModelViewSet):
     #      2. Make sure that POST also saves to DB for
     #
 
-    @staticmethod
-    def query_site():
+
+
+    def create(self, request):
         site = "http://gleam-vo.icrar.org/gleam_postage/q/siap.xml?"
-        return site
+        post_data = request.data
+        gleam_payload = ['POS', 'SIZE', 'FREQ', 'FORMAT']
+
+        # GLEAM
+        r = requests.get(site, params=self.query_gleam(gleam_payload, post_data))
+        return Response(r.url)
+
 
     @staticmethod
     def query_gleam(query_list, data):
@@ -34,13 +41,6 @@ class CutoutQueryView(viewsets.ModelViewSet):
 
         return payload
 
-    def create(self, request):
-        post_data = request.data
-        gleam_payload = ['POS', 'SIZE', 'FREQ', 'FORMAT']
-
-        # GLEAM
-        r = requests.get(self.query_site(), params=self.query_gleam(gleam_payload, post_data))
-        return Response(r.url)
 
     def retrieve(self, request, pk=None):
         return Response(serialized_data, status=status.HTTP_200_OK)
