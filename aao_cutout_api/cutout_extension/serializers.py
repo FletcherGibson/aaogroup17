@@ -28,6 +28,6 @@ class CutoutQuerySerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta: 
         model = CutoutQuery
-        fields = ('ra', 'dec', 'radius', 'bands', 'plot_units')
+        fields = ('ra', 'dec', 'radius', 'bands', 'output_type')
 
     

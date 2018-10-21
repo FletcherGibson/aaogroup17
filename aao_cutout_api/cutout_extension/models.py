@@ -57,7 +57,7 @@ BANDS_CHOICES = (
     ('223-231', 'MWA GLEAM DR1 223-231'),
 )
 
-PLOTUNITS_CHOICES = (
+OUTPUT_TYPE_CHOICES = (
     ('fits', 'FITS'),
 )
 
@@ -82,9 +82,9 @@ class CutoutQuery(models.Model):
     )
 
     #TODO: Validation
-    plot_units = models.CharField(
-        max_length=len(PLOTUNITS_CHOICES),
-        choices=PLOTUNITS_CHOICES,
+    output_type = models.CharField(
+        max_length=len(OUTPUT_TYPE_CHOICES),
+        choices=OUTPUT_TYPE_CHOICES,
         default=None
     )
 
