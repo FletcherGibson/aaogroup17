@@ -17,7 +17,6 @@ class CutoutQuerySerializer(serializers.ModelSerializer):
     ra = serializers.FloatField(
         label="RA",
         help_text="Right Ascension. Format is as: 10.2345",
-        validators=[even_number]
     )
 
     # Declination
