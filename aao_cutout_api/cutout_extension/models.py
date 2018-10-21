@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.validators import RegexValidator
 
 
 BANDS_CHOICES = (
@@ -37,28 +36,31 @@ OUTPUT_TYPE_CHOICES = (
     ('jpeg', 'JPEG'),
 )
 
+
 class CutoutQuery(models.Model):
-    #TODO: Validation
-    ra = models.DecimalField(max_digits=30,
-    decimal_places=4)
+    # TODO: Validation
+    ra = models.FloatField(
+        max_length=30,
+    )
 
-    #TODO: Validation
-    dec = models.DecimalField(max_digits=30,
-    decimal_places=4)
+    # TODO: Validation
+    dec = models.FloatField(
+        max_length=30,
+    )
 
-    #TODO: Validation & change from float field
+    # TODO: Validation & change from float field
     radius = models.FloatField()
 
-    #TODO: Validation
-    bands = models.CharField(max_length=len(BANDS_CHOICES),
+    # TODO: Validation
+    bands = models.CharField(
+        max_length=len(BANDS_CHOICES),
         choices=BANDS_CHOICES,
         default=None,
     )
 
-    #TODO: Validation
+    # TODO: Validation
     output_type = models.CharField(
         max_length=len(OUTPUT_TYPE_CHOICES),
         choices=OUTPUT_TYPE_CHOICES,
         default=None
     )
-
