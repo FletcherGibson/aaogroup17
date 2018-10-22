@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator, ValidationError
+
 
 BANDS_CHOICES = (
     ('mwagleam_dr1_072-080', 'MWA GLEAM DR1 072-080'),

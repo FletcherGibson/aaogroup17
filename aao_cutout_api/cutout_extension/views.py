@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from .models import CutoutQuery
 from .serializers import CutoutQuerySerializer
+from astropy.io.votable import parse
 
 
 class CutoutQueryView(viewsets.ModelViewSet):
@@ -28,10 +29,28 @@ class CutoutQueryView(viewsets.ModelViewSet):
 
         # GLEAM
         r = requests.get(site, params=self.query_gleam(gleam_payload, post_data))
-        return Response(r.url, status=status.HTTP_201_CREATED, headers=headers)
+        response = Response(r.url)
+
+        with open('votable.xml', 'w') as f:
+            f.write(r.text)
+            f.close()
+
+        votable = parse("votable.xml")
+        votable.to_xml("votable.xml")
+
+        f2 = open('votable.xml', 'r+')
+        lines = f2.readlines()
+        for line in lines:
+            if line[10:14] == "http": #find url
+                result = line[10:len(line) - 6] #remove tags
+                url = result.replace("&amp;", "&") #format url parameters
+                response = Response(url)
+        f2.close()
+        return response
 
     @staticmethod
     def query_gleam(query_list, data):
+
         position = [data['ra'], data['dec']]
         payload = {
             query_list[0]: ','.join(position),
@@ -41,6 +60,7 @@ class CutoutQueryView(viewsets.ModelViewSet):
         }
 
         return payload
+
 
     def retrieve(self, request, pk=None):
         return Response(serialized_data, status=status.HTTP_200_OK)
