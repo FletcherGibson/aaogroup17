@@ -12,9 +12,8 @@ def test_account_is_configured():
 
 
 def test_bad_request_raises_exception():
-    bad_req = bad_request()
     with pytest.raises(Exception) as e_info:
-        c = CutoutQueryView.create(None, bad_req)
+        c = CutoutQueryView.create(None, TestData.invalid_post)
 
 
 def test_empty_request_raises_exception():
