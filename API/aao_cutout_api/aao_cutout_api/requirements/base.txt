@@ -1,0 +1,8 @@
+django==1.11.4
+django-storages
+django-environ
+djangorestframework
+requests
+pytest
+psycopg2-binary
+boto3
