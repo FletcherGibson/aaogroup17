@@ -1,4 +1,4 @@
-"""aao_cutout_api URL Configuration
+"""cutout_api URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('',include('cutout_extension.urls'))
+    url('', include('remote_imaging_micro_service.urls'))
 ]

@@ -3,7 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "aao_cutout_api.settings.dev")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cutout_api.settings.dev")
     try:
         from django.core.management import execute_from_command_line
     except ImportError:

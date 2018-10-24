@@ -3,5 +3,5 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-/aao_cutout_api/settings/local
+/cutout_api/settings/local
 db.sqlite3

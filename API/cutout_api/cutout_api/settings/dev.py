@@ -1,4 +1,4 @@
-from aao_cutout_api.settings.base import *
+from cutout_api.settings.base import *
 
 #Override base.py settings here
 
@@ -15,6 +15,6 @@ DATABASES = {
 }
 
 try:
-    from aao_cutout_api.settings.local import *
+    from cutout_api.settings.local import *
 except :
     pass

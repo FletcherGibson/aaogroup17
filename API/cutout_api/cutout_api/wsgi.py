@@ -1,5 +1,5 @@
 """
-WSGI config for aao_cutout_api project.
+WSGI config for cutout_api project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "aao_cutout_api.settings.prod")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cutout_api.settings.prod")
 
 application = get_wsgi_application()

@@ -2,7 +2,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#APPS_DIR = ROOT_DIR.path('aao_cutout_api')
+#APPS_DIR = ROOT_DIR.path('cutout_api')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -27,7 +27,7 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-    'cutout_extension.apps.CutoutExtensionConfig',
+    'remote_imaging_micro_service.apps.CutoutExtensionConfig',
 )
 
 
@@ -44,12 +44,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'aao_cutout_api.urls'
+ROOT_URLCONF = 'cutout_api.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:\\Code\\aaogroup17\\aao_cutout_api\\cutout_extension'],
+        'DIRS': ['D:\\Code\\aaogroup17\\cutout_api\\remote_imaging_micro_service'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,7 +62,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'aao_cutout_api.wsgi.application'
+WSGI_APPLICATION = 'cutout_api.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

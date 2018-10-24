@@ -1,4 +1,4 @@
-from aao_cutout_api.settings.base import *
+from cutout_api.settings.base import *
 import os
 #Override base.py settings here
 
@@ -37,6 +37,6 @@ MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 try:
-    from aao_cutout_api.settings.local import *
+    from cutout_api.settings.local import *
 except :
     pass
