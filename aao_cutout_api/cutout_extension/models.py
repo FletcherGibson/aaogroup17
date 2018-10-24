@@ -62,5 +62,5 @@ class CutoutQuery(models.Model):
     output_type = models.CharField(
         max_length=len(OUTPUT_TYPE_CHOICES),
         choices=OUTPUT_TYPE_CHOICES,
-        default=None
+        default="fits"
     )
