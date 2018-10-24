@@ -16,7 +16,7 @@ class CutoutQuerySerializer(serializers.ModelSerializer):
     # Right Ascension
     ra = serializers.FloatField(
         label="RA",
-        help_text="Right Ascension. Format is as: 10.2345 - test",
+        help_text="Right Ascension. Format is as: 10.2345",
     )
 
     # Declination
