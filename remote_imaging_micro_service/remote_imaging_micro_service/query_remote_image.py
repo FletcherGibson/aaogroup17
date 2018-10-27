@@ -4,20 +4,31 @@ import requests
 from astropy.io.votable import parse
 
 
-def query_gleam(query_list, data):
+def query_gleam(request):
+    site = "http://gleam-vo.icrar.org/gleam_postage/q/siap.xml?"
+    data = request.data
+    gleam_payload = ['POS', 'SIZE', 'FREQ', 'FORMAT']
+
     position = [data['ra'], data['dec']]
     payload = {
-        query_list[0]: ','.join(position),
-        query_list[1]: data['radius'],
-        query_list[2]: re.sub(r'^mwagleam_dr1_', '', data['bands']),
-        query_list[3]: data['output_type']
+        gleam_payload[0]: ','.join(position),
+        gleam_payload[1]: data['radius'],
+        gleam_payload[2]: re.sub(r'^mwagleam_dr1_', '', data['bands']),
+        gleam_payload[3]: data['output_type']
     }
 
-    return payload
+    return parse_votable(site, payload, data)
 
 
 def parse_votable(site, payload, data):
     r = requests.get(site, params=query_gleam(payload, data))
+    create_voteable_local(r)
+    response = extract_files_from_votable()
+
+    return response
+
+
+def create_voteable_local(r):
     with open('votable.xml', 'w') as f:
         f.write(r.text)
         f.close()
@@ -25,6 +36,10 @@ def parse_votable(site, payload, data):
     votable = parse("votable.xml")
     votable.to_xml("votable.xml")
 
+    return votable
+
+
+def extract_files_from_votable():
     f2 = open('votable.xml', 'r+')
     lines = f2.readlines()
     for line in lines:
