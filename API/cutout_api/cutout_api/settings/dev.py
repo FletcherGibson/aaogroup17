@@ -1,6 +1,6 @@
 from cutout_api.settings.base import *
 
-#Override base.py settings here
+# Override base.py settings here
 
 DEBUG = True
 
@@ -16,5 +16,5 @@ DATABASES = {
 
 try:
     from cutout_api.settings.local import *
-except :
+except:
     pass

@@ -2,7 +2,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#APPS_DIR = ROOT_DIR.path('cutout_api')
+# APPS_DIR = ROOT_DIR.path('cutout_api')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -23,16 +23,15 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'remote_imaging_micro_service',
     'rest_framework',
 )
 
 LOCAL_APPS = (
-    'remote_imaging_micro_service.apps.CutoutExtensionConfig',
+    'main',
 )
 
-
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,7 +48,7 @@ ROOT_URLCONF = 'cutout_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:\\Code\\aaogroup17\\cutout_api\\remote_imaging_micro_service'],
+        'DIRS': ['D:\\Code\\aaogroup17\\cutout_api\\API\\cutout_api\\main'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,7 +81,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -96,9 +94,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATIC_URL = '/static/'
-

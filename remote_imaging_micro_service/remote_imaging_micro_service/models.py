@@ -1,6 +1,5 @@
 from django.db import models
 
-
 BANDS_CHOICES = (
     ('mwagleam_dr1_072-080', 'MWA GLEAM DR1 072-080'),
     ('mwagleam_dr1_072-103', 'MWA GLEAM DR1 072-103 (stacked)'),

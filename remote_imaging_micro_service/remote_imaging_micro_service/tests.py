@@ -8,7 +8,7 @@ pytestmark = pytest.mark.django_db
 
 
 def test_account_is_configured():
-    assert 'remote_imaging_micro_service.apps.CutoutExtensionConfig' in INSTALLED_APPS
+    assert 'remote_imaging_micro_service.apps.RemoteImagingMicroServiceConfig' in INSTALLED_APPS
 
 
 def test_bad_request_raises_exception():

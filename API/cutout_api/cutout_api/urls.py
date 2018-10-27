@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('', include('remote_imaging_micro_service.urls'))
+    url('', include('main.urls'))
 ]

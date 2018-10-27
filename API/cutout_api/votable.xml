@@ -13,7 +13,7 @@
 '072-080', 'RA0': 0.017453292519943295, 'grid_opt0': '0', 'DEC0':
 0.03490658503988659}</INFO>
   <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK"/>
-  <TABLE ID="aegaohwwaldn" name="aegaohwwaldn" nrows="1">
+  <TABLE ID="aewgenwwaldn" name="aewgenwwaldn" nrows="1">
    <FIELD ID="freq" arraysize="*" datatype="char" name="freq" unit="MHz">
     <DESCRIPTION>
      Frequency range

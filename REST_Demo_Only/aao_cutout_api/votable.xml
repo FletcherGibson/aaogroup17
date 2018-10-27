@@ -10,10 +10,10 @@
  <INFO ID="legal" name="legal" value=" GLEAM Postage Stamp Service: The GaLactic and Extragalactic MWA Survey Postage Stamp Service"/>
  <RESOURCE type="results">
   <INFO ID="queryPars" name="queryPars" value="(substring(filename, 12, 1) = &apos;2&apos;) AND (freq=%(freq0)s) AND (1 = 1)">{'size0': 0.026179938779914945, 'proj_opt0': 'ZEA', u'freq0':
-'072-080', 'RA0': 0.017453292519943295, 'grid_opt0': '0', 'DEC0':
-0.03490658503988659}</INFO>
+'072-080', 'RA0': 0.08726646259971647, 'grid_opt0': '0', 'DEC0':
+0.06981317007977318}</INFO>
   <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK"/>
-  <TABLE ID="ahgeuehwaldn" name="ahgeuehwaldn" nrows="1">
+  <TABLE ID="ahshoehwaldn" name="ahshoehwaldn" nrows="1">
    <FIELD ID="freq" arraysize="*" datatype="char" name="freq" unit="MHz">
     <DESCRIPTION>
      Frequency range
@@ -50,7 +50,7 @@
     <TABLEDATA>
      <TR>
       <TD>072-080</TD>
-      <TD>http://gleam-vo.icrar.org/GLEAMCUTOUT?radec=1,2&amp;radius=1.5&amp;file_id=mosaic_Week2_072-080MHz.fits&amp;regrid=0&amp;projection=ZEA&amp;fits_format=1</TD>
+      <TD>http://gleam-vo.icrar.org/GLEAMCUTOUT?radec=5,4&amp;radius=1.5&amp;file_id=mosaic_Week2_072-080MHz.fits&amp;regrid=0&amp;projection=ZEA&amp;fits_format=1</TD>
       <TD>images/fits</TD>
       <TD>318450240</TD>
       <TD/>
