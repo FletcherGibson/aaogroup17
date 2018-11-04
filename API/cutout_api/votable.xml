@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Produced with astropy.io.votable version 3.0.4
+     http://www.astropy.org/ -->
+<VOTABLE version="1.1" xmlns="http://www.ivoa.net/xml/VOTable/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.1">
+ <DESCRIPTION>
+  The GLEAM postage stamp service provides image cutouts of the GLEAM
+  survey to the astronomical community. The data distributed here is
+  described in Hurley-Walker et al. (2016).
+ </DESCRIPTION>
+ <INFO ID="legal" name="legal" value=" GLEAM Postage Stamp Service: The GaLactic and Extragalactic MWA Survey Postage Stamp Service"/>
+ <RESOURCE type="results">
+  <INFO ID="queryPars" name="queryPars" value="(substring(filename, 12, 1) = &apos;2&apos;) AND (freq=%(freq0)s) AND (1 = 1)">{'size0': 0.026179938779914945, 'proj_opt0': 'ZEA', u'freq0':
+'072-080', 'RA0': 0.017453292519943295, 'grid_opt0': '0', 'DEC0':
+0.03490658503988659}</INFO>
+  <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK"/>
+  <TABLE ID="aepaohwwaldn" name="aepaohwwaldn" nrows="1">
+   <FIELD ID="freq" arraysize="*" datatype="char" name="freq" unit="MHz">
+    <DESCRIPTION>
+     Frequency range
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="accref" arraysize="*" datatype="char" name="accref" ucd="VOX:Image_AccessReference" utype="Access.Reference"/>
+   <FIELD ID="mime" arraysize="*" datatype="char" name="mime" ucd="VOX:Image_Format" utype="Access.Format">
+    <DESCRIPTION>
+     MIME type of the file served
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="accsize" datatype="int" name="accsize" ucd="VOX:Image_FileSize" unit="byte" utype="Access.Size">
+    <DESCRIPTION>
+     Size of the data in bytes
+    </DESCRIPTION>
+    <VALUES null="-1"/>
+   </FIELD>
+   <FIELD ID="centerAlpha" datatype="float" name="centerAlpha" ucd="pos.eq.ra;meta.main">
+    <DESCRIPTION>
+     Right ascension of object observed
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="centerDelta" datatype="float" name="centerDelta" ucd="pos.eq.dec;meta.main">
+    <DESCRIPTION>
+     Declination of object observed
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="filename" arraysize="*" datatype="char" name="filename">
+    <DESCRIPTION>
+     The name of archived file in NGAS
+    </DESCRIPTION>
+   </FIELD>
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>072-080</TD>
+      <TD>http://gleam-vo.icrar.org/GLEAMCUTOUT?radec=1,2&amp;radius=1.5&amp;file_id=mosaic_Week2_072-080MHz.fits&amp;regrid=0&amp;projection=ZEA&amp;fits_format=1</TD>
+      <TD>images/fits</TD>
+      <TD>318450240</TD>
+      <TD/>
+      <TD/>
+      <TD>mosaic_Week2_072-080MHz.fits</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+  </TABLE>
+ </RESOURCE>
+</VOTABLE>

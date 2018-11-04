@@ -9,11 +9,11 @@
  </DESCRIPTION>
  <INFO ID="legal" name="legal" value=" GLEAM Postage Stamp Service: The GaLactic and Extragalactic MWA Survey Postage Stamp Service"/>
  <RESOURCE type="results">
-  <INFO ID="queryPars" name="queryPars" value="(substring(filename, 12, 1) = &apos;2&apos;) AND (freq=%(freq0)s) AND (1 = 1)">{'size0': 0.03490658503988659, 'proj_opt0': 'ZEA', u'freq0':
-'170-231', 'RA0': 0.17862572229535967, 'grid_opt0': '0', 'DEC0':
--0.0047403142484166}</INFO>
+  <INFO ID="queryPars" name="queryPars" value="(substring(filename, 12, 1) = &apos;2&apos;) AND (freq=%(freq0)s) AND (1 = 1)">{'size0': 0.026179938779914945, 'proj_opt0': 'ZEA', u'freq0':
+'072-080', 'RA0': 0.08726646259971647, 'grid_opt0': '0', 'DEC0':
+0.06981317007977318}</INFO>
   <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK"/>
-  <TABLE ID="aemhthwwaldn" name="aemhthwwaldn" nrows="1">
+  <TABLE ID="ahshoehwaldn" name="ahshoehwaldn" nrows="1">
    <FIELD ID="freq" arraysize="*" datatype="char" name="freq" unit="MHz">
     <DESCRIPTION>
      Frequency range
@@ -49,13 +49,13 @@
    <DATA>
     <TABLEDATA>
      <TR>
-      <TD>170-231</TD>
-      <TD>http://gleam-vo.icrar.org/GLEAMCUTOUT?radec=10.2345,-0.2716&amp;radius=2&amp;file_id=mosaic_Week2_170-231MHz.fits&amp;regrid=0&amp;projection=ZEA&amp;fits_format=1</TD>
+      <TD>072-080</TD>
+      <TD>http://gleam-vo.icrar.org/GLEAMCUTOUT?radec=5,4&amp;radius=1.5&amp;file_id=mosaic_Week2_072-080MHz.fits&amp;regrid=0&amp;projection=ZEA&amp;fits_format=1</TD>
       <TD>images/fits</TD>
-      <TD>1273060800</TD>
+      <TD>318450240</TD>
       <TD/>
       <TD/>
-      <TD>mosaic_Week2_170-231MHz.fits</TD>
+      <TD>mosaic_Week2_072-080MHz.fits</TD>
      </TR>
     </TABLEDATA>
    </DATA>
