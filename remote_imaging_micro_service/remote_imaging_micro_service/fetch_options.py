@@ -11,10 +11,10 @@ def gleam_options():
 
     freq_options = soup.find('select', attrs={'name': 'freq'})
 
-    gleam_freq_options = ()
+    gleam_freq_options = []
 
     for option in freq_options:
         choice = ('mwagleam_dr1_' + option.text, option.text)
-        gleam_freq_options + choice
+        gleam_freq_options.append(choice)
 
     return gleam_freq_options
