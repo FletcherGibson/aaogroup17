@@ -3,6 +3,7 @@ astropy==3.0.4
 atomicwrites==1.2.1
 attrs==18.2.0
 awsebcli==3.14.6
+beautifulsoup4
 boto3==1.9.14
 botocore==1.12.14
 cement==2.8.2

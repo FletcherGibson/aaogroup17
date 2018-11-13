@@ -3,6 +3,12 @@ from urllib.request import urlopen
 
 
 def gleam_options():
+    """
+    Scraps gleam_page for options that they are currently offering
+    and returns them in a list.
+    :rtype: List
+    :return: The available options that GLEAM currently accepts
+    """
     gleam_page = 'http://gleam-vo.icrar.org/gleam_postage/q/form'
 
     options_page = urlopen(gleam_page)

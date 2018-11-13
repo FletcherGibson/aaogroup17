@@ -5,6 +5,11 @@ from astropy.io.votable import parse
 
 
 def query_gleam(request):
+    """
+    Queries the site with a specified payload.
+    :param request: The request to be sent
+    :return: A call to parse_votable
+    """
     site = "http://gleam-vo.icrar.org/gleam_postage/q/siap.xml?"
     data = request.data
     gleam_payload = ['POS', 'SIZE', 'FREQ', 'FORMAT']
@@ -21,6 +26,13 @@ def query_gleam(request):
 
 
 def parse_votable(site, payload, data):
+    """
+
+    :param site: The site to query
+    :param payload: The payload for a GET request
+    :param data: the data to be used in the payload
+    :return: A response from the
+    """
     r = requests.get(site, params=query_gleam(payload, data))
     create_voteable_local(r)
     response = extract_files_from_votable()
@@ -29,6 +41,11 @@ def parse_votable(site, payload, data):
 
 
 def create_voteable_local(r):
+    """
+    Creates a readable votable.xml file
+    :param r: a request from the queried site
+    :return:
+    """
     with open('votable.xml', 'w') as f:
         f.write(r.text)
         f.close()
@@ -40,6 +57,10 @@ def create_voteable_local(r):
 
 
 def extract_files_from_votable():
+    """
+    Extracts only the required data from the VOTable.XML file
+    :return: The extracted results from the VOTable.XML file
+    """
     f2 = open('votable.xml', 'r+')
     lines = f2.readlines()
     for line in lines:
